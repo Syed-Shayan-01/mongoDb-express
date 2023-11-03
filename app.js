@@ -11,4 +11,4 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRouter)
 
-app.listen(3000)
+app.listen(3000);

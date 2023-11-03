@@ -10,6 +10,7 @@ router.post("/signup", async (req, res) => {
       email: req.body.email,
       password: req.body.password
     });
+    
     const response = await auth.save()
 
     res.status(200).send(response);
