@@ -1,0 +1,69 @@
+[
+    {
+        "id": 1,
+        "name": "Frog",
+        "desc": "Dummmy Data",
+        "price": "200",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/51RrN1WLfxL._AC_UY741_.jpg",
+        "qty": 1
+    },
+    {
+        "id": 2,
+        "name": "Frog",
+        "desc": "Dummmy Data",
+        "price": "200",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/51RrN1WLfxL._AC_UY741_.jpg",
+        "qty": 1
+    },
+    {
+        "id": 3,
+        "name": "Burger",
+        "desc": "Dummmy Data",
+        "price": "20",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/715mpLEL7eL._AC_UX679_.jpg",
+        "qty": 1
+    },
+    {
+        "id": 4,
+        "name": "Burger",
+        "desc": "Dummmy Data",
+        "price": "20",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/71-akVWLaEL._AC_UY741_.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Burger",
+        "desc": "Dummmy Data",
+        "price": "20",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/81nsj-dCB1L._AC_UX569_.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Burger",
+        "desc": "Dummmy Data",
+        "price": "20",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/81vCTr9UaEL._AC_UX679_.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Burger",
+        "desc": "Dummmy Data",
+        "price": "20",
+        "color": "Black",
+        "Img": "https://m.media-amazon.com/images/I/71QvsUFBVOL._AC_UX679_.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Pizza",
+        "desc": "Dummy Data",
+        "price": "100",
+        "color": "Yellow",
+        "Img": "https://m.media-amazon.com/images/I/81vCTr9UaEL._AC_UX679_.jpg"
+    }
+]
