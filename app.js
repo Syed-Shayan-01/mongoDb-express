@@ -12,4 +12,4 @@ app.use(cors())
 app.use("/", Verify, indexRouter)
 app.use("/auth", authRouter)
 
-app.listen(3000);
+app.listen(8000);
