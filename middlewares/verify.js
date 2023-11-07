@@ -3,18 +3,15 @@ const secret_key = require('../secret/Key');
 
 const Verify = (req, res, next) => {
     const token = req.headers.token;
-    if (!token) {
-        return res.status(401).send('No token provided');
+    if (token) {
+        jwt.verify(token, secret_key, function (err) {
+            if (err) {
+                res.send('Authentication Failed')
+            }
+        });
+        next();
     }
 
-    jwt.verify(token, secret_key, function (err, decoded) {
-        if (err) {
-            return res.status(401).send('Authentication failed');
-        }
-        console.log(decoded.email);
-
-    });
-    next(); 
 };
 
 module.exports = Verify;

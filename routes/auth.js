@@ -33,9 +33,8 @@ router.post("/login", async (req, res) => {
 
     const passCom = await bcrypt.compare(password, !!user && user.password);   //  bcrypt.compare password Method
     if (!passCom) {
-      return "Incorrect Password"
+     return res.status(401).send('Incorrect Password')
     }
-
     const token = jwt.sign(email, secret_key);
     res.status(200).send(token)
   } catch (err) {
