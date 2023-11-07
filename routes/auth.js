@@ -16,7 +16,7 @@ router.post("/signup", async (req, res) => {
     });
     const userCheck = await User.findOne({ email });
     if (userCheck) {
-      return res.status(401).json({ message: 'User Already Exist' });
+      return 'User Already Exist';
     }
     const response = await auth.save()
     res.status(201).send(response);
@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
 
     const passCom = await bcrypt.compare(password, !!user && user.password);   //  bcrypt.compare password Method
     if (!passCom) {
-      return res.status(401).json({ message: 'Invalid Password' });
+      return "Incorrect Password"
     }
 
     const token = jwt.sign(email, secret_key);
@@ -42,6 +42,4 @@ router.post("/login", async (req, res) => {
     throw err;
   }
 })
-
-
 module.exports = router;
