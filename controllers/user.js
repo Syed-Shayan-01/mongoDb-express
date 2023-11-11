@@ -30,11 +30,31 @@ const handleUserLogin = async (req, res) => {
         if (!passCom) {
             return res.status(401).send('Incorrect Password')
         }
-        const token = jwt.sign(email, secret_key)
-        res.cookie("token", token, { httpOnly: true });
+        const token = jwt.sign({ email: user.email }, secret_key)
+        res.cookie
         res.status(200).send(token)
     } catch (err) {
         throw err;
     }
 }
+
+// const Verify = async (req, res, next) => {
+//     const authHeader = req.headers.token;
+
+//     if (!authHeader) {
+//         return res.status(401).json({ error: "Unauthorized: Missing Token" });
+//     }
+//     console.log(authHeader)
+
+//     await jwt.verify(authHeader, secret_key, (err, decoded) => {
+//         if (err) {
+//             return res.status(403).json({ error: "Forbidden: Invalid Token" });
+//         }
+//         console.log(decoded);
+//         // Optionally, you can attach the decoded user information to the request for later use
+//         req.user = decoded;
+//         next();
+//     });
+// };
+
 module.exports = { handleUserSignup, handleUserLogin }

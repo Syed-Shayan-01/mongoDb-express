@@ -6,8 +6,8 @@ const authRouter = require('./routes/auth')
 const indexRouter = require('./routes/')
 const jwt = require('jsonwebtoken');
 const mongoose = require('./models/db/connnectDb');
-const Verify = require('./middlewares/verify');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+const { Verify } = require('./controllers/user');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(express.json());
