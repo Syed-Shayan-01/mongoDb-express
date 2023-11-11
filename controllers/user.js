@@ -31,30 +31,20 @@ const handleUserLogin = async (req, res) => {
             return res.status(401).send('Incorrect Password')
         }
         const token = jwt.sign({ email: user.email }, secret_key)
-        res.cookie
         res.status(200).send(token)
     } catch (err) {
         throw err;
     }
 }
 
-// const Verify = async (req, res, next) => {
-//     const authHeader = req.headers.token;
+const Verify = (req, res, next) => {
+    jwt.verify(req.headers.token, secret_key, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: 'Token verification failed' });
+      }
+      next();
+    });
+  };
+  
 
-//     if (!authHeader) {
-//         return res.status(401).json({ error: "Unauthorized: Missing Token" });
-//     }
-//     console.log(authHeader)
-
-//     await jwt.verify(authHeader, secret_key, (err, decoded) => {
-//         if (err) {
-//             return res.status(403).json({ error: "Forbidden: Invalid Token" });
-//         }
-//         console.log(decoded);
-//         // Optionally, you can attach the decoded user information to the request for later use
-//         req.user = decoded;
-//         next();
-//     });
-// };
-
-module.exports = { handleUserSignup, handleUserLogin }
+module.exports = { handleUserSignup, handleUserLogin, Verify }
