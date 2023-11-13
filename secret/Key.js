@@ -1,3 +1,1 @@
-const secret_key = "my-secretfjdsajlksdflfdsfsdfds";
-
-module.exports = secret_key;
+exports.secret_key = "mySecretKey";
