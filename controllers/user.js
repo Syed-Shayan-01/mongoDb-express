@@ -1,7 +1,8 @@
 const User = require('../models/authSchema')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { secret_key } = require('../secret/Key');
+const { secret } = require('../secret/Key');
+
 const handleUserSignup = async (req, res) => {
     try {
 
@@ -35,8 +36,10 @@ const handleUserLogin = async (req, res) => {
         if (!passCom) {
             return res.status(401).send('Incorrect Password')
         }
-        const token = jwt.sign({ _id: user._id, email: user.email }, secret_key)
-        res.status(200).send(token)
+        const token = jwt.sign({ payload: { _id: user._id, email: user.email } }, secret, (err, asyncToken) => {
+            if (err) throw err;
+            res.status(200).send(token)
+        })
 
     } catch (err) {
         throw err;

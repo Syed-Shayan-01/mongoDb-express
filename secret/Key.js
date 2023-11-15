@@ -1,1 +1,5 @@
-exports.secret_key = "mySecretKey";
+
+module.exports = {
+    secret: 'your-secret-key',
+  };
+  
