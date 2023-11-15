@@ -35,7 +35,7 @@ const handleUserLogin = async (req, res) => {
         if (!passCom) {
             return res.status(401).send('Incorrect Password')
         }
-        const token = jwt.sign(user.email, secret_key)
+        const token = jwt.sign({ _id: user._id, email: user.email }, secret_key)
         res.status(200).send(token)
 
     } catch (err) {
