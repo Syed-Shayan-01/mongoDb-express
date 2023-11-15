@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken')
 exports.verify = async (req, res, next) => {
     try {
         const token = req.headers.token;
+        if (!token || !token.startsWith('Bearer')) {
+            return res.status(401).json({ message: 'token not be provided' })
+        }
         jwt.verify(token, secret, (err, decoded) => {
             if (err) {
                 console.error('Token verification failed:', err);
