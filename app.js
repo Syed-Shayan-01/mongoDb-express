@@ -9,7 +9,7 @@ const { verify } = require('./middlewares/verify')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(express.json());
-app.use("/", verify, indexRouter)
+app.use("/", indexRouter)
 app.use("/auth", authRouter)
 
 app.listen(3000);

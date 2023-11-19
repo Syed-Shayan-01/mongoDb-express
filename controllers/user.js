@@ -38,7 +38,7 @@ const handleUserLogin = async (req, res) => {
         }
         const token = jwt.sign({ payload: { _id: user._id, email: user.email } }, secret, (err, asyncToken) => {
             if (err) throw err;
-            res.status(200).send(token)
+            res.status(200).send(token);
         })
 
     } catch (err) {
