@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('./models/db/connnectDb');
 const { verify } = require('./middlewares/verify')
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.json());
 app.use("/", indexRouter)
