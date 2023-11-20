@@ -36,11 +36,9 @@ const handleUserLogin = async (req, res) => {
         if (!passCom) {
             return res.status(401).send('Incorrect Password')
         }
-        const token = jwt.sign({ payload: { _id: user._id, email: user.email } }, secret, (err, asyncToken) => {
-            if (err) throw err;
-            res.status(200).send(token);
-        })
-
+        const token = jwt.sign({ email: user.email }, secret)
+        if (token) res.cookie('token', token, { httpOnly: true, secure: true });
+        res.status(200).send(token);
     } catch (err) {
         throw err;
     }
