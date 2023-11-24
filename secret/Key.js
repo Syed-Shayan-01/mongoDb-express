@@ -1,5 +1,3 @@
 
-module.exports = {
-    secret: 'your-secret-key',
-  };
-  
+exports.secret = 'myKeyIStheBestKeyIntheWorld'
+
