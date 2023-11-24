@@ -1,17 +1,17 @@
-const User = require('../models/authSchema')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../secret/Key');
+const { Auth } = require('../models/authSchema');
 
 const handleUserSignup = async (req, res) => {
     try {
 
         const { username, email, password } = req.body;
         const hashPass = await bcrypt.hash(password, 12);
-        const auth = new User({
+        const auth = new Auth({
             username, email, password: hashPass
         });
-        const userCheck = await User.findOne({ email });
+        const userCheck = await Auth.findOne({ email });
         if (userCheck) {
             return 'User Already Exist';
         }
@@ -26,7 +26,7 @@ const handleUserSignup = async (req, res) => {
 const handleUserLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const user = await Auth.findOne({ email });
         if (!user) {
             return {
                 error: "Invalid Email"

@@ -15,7 +15,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", indexRouter)
+app.use("/", verify, indexRouter)
 app.use("/auth", authRouter)
 
 app.listen(3000);
