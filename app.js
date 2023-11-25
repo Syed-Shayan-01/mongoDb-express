@@ -6,12 +6,9 @@ const authRouter = require('./routes/auth')
 const indexRouter = require('./routes/')
 const jwt = require('jsonwebtoken');
 const mongoose = require('./models/db/connnectDb');
-const axios = require('axios');
-const cors = require('cors')
-const { Verify } = require('./controllers/user')
+const { Verify } = require('./middlewares/verify')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }))
-app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json());
 app.use(cookieParser());
