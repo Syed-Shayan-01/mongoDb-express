@@ -37,11 +37,11 @@ const handleUserLogin = async (req, res) => {
         if (!passCom) {
             return res.status(401).send('Incorrect Password')
         }
-        const token = jwt.sign({ email }, secret);
-        res.status(200).send({ token })
+        const token =  jwt.sign({ email }, secret);
+        res.status(200).send(token)
     } catch (err) {
         throw err;
     }
 }
 
-module.exports = { handleUserSignup, handleUserLogin }
+module.exports = { handleUserSignup, handleUserLogin };
